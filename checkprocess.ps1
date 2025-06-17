@@ -1,4 +1,4 @@
-﻿Write-Host @"
+Write-Host @"
 :::::::::: :::::::::      :::     :::::::::  :::::::::: ::::    :::   :::         ::::::::   ::::::::  
 :+:        :+:    :+:   :+: :+:   :+:    :+: :+:        :+:+:   :+: :+:+:        :+:    :+: :+:    :+: 
 +:+        +:+    +:+  +:+   +:+  +:+    +:+ +:+        :+:+:+  +:+   +:+        +:+        +:+        
@@ -7,19 +7,16 @@
 #+#        #+#    #+# #+#     #+# #+#    #+# #+#        #+#   #+#+#   #+#        #+#    #+# #+#    #+# 
 ###        ###    ### ###     ### #########  ########## ###    #### #######       ########   ########
 
-
-Check Process Service Only One!                                                  
+Check Process Service Only One!
 "@
 
 $services = @("sysmain", "dps", "pcasvc", "diagtrack", "bam")
 
 foreach ($service in $services) {
+    Write-Host "`n-------------------------"
+    Write-Host "Service status: $service"
     $status = sc.exe query $service
-    Write-Output "
-    Service status: $service"
-    Write-Output $status
-    Write-Output "-------------------------
-    "
+    Write-Host $status
 }
 
 Pause

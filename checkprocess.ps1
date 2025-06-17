@@ -1,5 +1,4 @@
-﻿# ASCII Art Header
-Write-Host @"
+﻿Write-Host @"
 :::::::::: :::::::::      :::     :::::::::  :::::::::: ::::    :::   :::         ::::::::   ::::::::  
 :+:        :+:    :+:   :+: :+:   :+:    :+: :+:        :+:+:   :+: :+:+:        :+:    :+: :+:    :+: 
 +:+        +:+    +:+  +:+   +:+  +:+    +:+ +:+        :+:+:+  +:+   +:+        +:+        +:+        
@@ -12,10 +11,8 @@ Write-Host @"
 Check Process Service Only One!                                                  
 "@
 
-# List of services to check
 $services = @("sysmain", "dps", "pcasvc", "diagtrack", "bam")
 
-# Checking the status of each service
 foreach ($service in $services) {
     $status = sc.exe query $service
     Write-Output "
@@ -25,7 +22,6 @@ foreach ($service in $services) {
     "
 }
 
-# User choice: 1 to refresh, 2 to exit
 Write-Host "Press 1 to refresh the command, or 2 to close the program."
 $choice = Read-Host "Enter your choice"
 

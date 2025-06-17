@@ -22,15 +22,4 @@ foreach ($service in $services) {
     "
 }
 
-Write-Host "Press 1 to refresh the command, or 2 to close the program."
-$choice = Read-Host "Enter your choice"
-
-if ($choice -eq "1") {
-    Write-Host "Refreshing..."
-    Start-Process -FilePath "powershell.exe" -ArgumentList "-NoExit -File `"$PSCommandPath`""
-} elseif ($choice -eq "2") {
-    Write-Host "Closing the program..."
-    exit
-} else {
-    Write-Host "Invalid choice. Please try again."
-}
+Pause
